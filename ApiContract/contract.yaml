@@ -1,0 +1,171 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "API for Cari Apa",
+    "description" : "List API Cari Apa",
+    "version" : "V1"
+  },
+  "servers" : [ {
+    "url" : "https://virtserver.swaggerhub.com/hanifbg/CariApa.id/V1",
+    "description" : "SwaggerHub API Auto Mocking"
+  } ],
+  "paths" : {
+    "/login" : {
+      "get" : {
+        "summary" : "Get Auth Token",
+        "description" : "Get User Auth Token",
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Token"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/login" : {
+      "get" : {
+        "summary" : "Get Auth Token for Admin",
+        "description" : "Get Admin Auth Token",
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Token"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sign-up" : {
+      "post" : {
+        "summary" : "Sign Up For New User",
+        "description" : "Sign Up For New User",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/User"
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Created"
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Token" : {
+        "type" : "object",
+        "properties" : {
+          "access_token" : {
+            "type" : "string",
+            "example" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzE4ODgwMTcsImhtYWMiOiIyZGYxMzU5OThkOGEzYTc2MTAxYjM0NWZkNGE4NzZiZDUwYzgwNTVhNDE4MTkxNjhjZDgzMGUzNWZkNjVmMjU0In0.VErBbLNUArWCaPD4YUdkZbV3la1Y2O9lXY-h3mPspTE"
+          },
+          "expires_in" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      },
+      "User" : {
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string",
+            "example" : "example@mail.com"
+          },
+          "fullname" : {
+            "type" : "string",
+            "example" : "this is my fullname"
+          },
+          "password" : {
+            "type" : "string",
+            "example" : "mypassword"
+          },
+          "phone_number" : {
+            "maxLength" : 16,
+            "minLength" : 12,
+            "type" : "string",
+            "example" : "082222222222"
+          },
+          "address" : {
+            "minLength" : 25,
+            "type" : "string",
+            "example" : "this is my full address"
+          }
+        }
+      },
+      "Error" : {
+        "type" : "object",
+        "properties" : {
+          "header" : {
+            "$ref" : "#/components/schemas/Error_header"
+          },
+          "error" : {
+            "type" : "string",
+            "example" : "your error message"
+          },
+          "error_data" : {
+            "type" : "array",
+            "description" : "an error data if any",
+            "items" : {
+              "$ref" : "#/components/schemas/Error_error_data"
+            }
+          }
+        }
+      },
+      "Error_header" : {
+        "type" : "object",
+        "properties" : {
+          "server_process_time" : {
+            "type" : "string",
+            "example" : "10ms"
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 400
+          }
+        }
+      },
+      "Error_error_data" : {
+        "type" : "object",
+        "properties" : {
+          "yourKey1" : {
+            "type" : "string",
+            "example" : "your value if any"
+          }
+        }
+      }
+    },
+    "requestBodies" : {
+      "User" : {
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/User"
+            }
+          }
+        }
+      }
+    }
+  }
+}
