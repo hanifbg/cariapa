@@ -78,7 +78,7 @@
         "properties" : {
           "access_token" : {
             "type" : "string",
-            "example" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzE4ODgwMTcsImhtYWMiOiIyZGYxMzU5OThkOGEzYTc2MTAxYjM0NWZkNGE4NzZiZDUwYzgwNTVhNDE4MTkxNjhjZDgzMGUzNWZkNjVmMjU0In0.VErBbLNUArWCaPD4YUdkZbV3la1Y2O9lXY-h3mPspTE"
+            "example" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ89.eyJleHAiOjE2MzE4ODgwMTcsImhtYWMiOiIyZGYxMzU5OThkOGEzYTc2MTAxYjM0NWZkNGE4NzZiZDUwYzgwNTVhNDE4MTkxNjhjZDgzMGUzNWZkNjVmMjU0In0.VErBbLNUArWCaPD4YUdkZbV3la1Y2O9lXY-h3mPspTE"
           },
           "expires_in" : {
             "type" : "integer",
